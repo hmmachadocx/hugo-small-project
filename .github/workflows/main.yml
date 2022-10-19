@@ -26,4 +26,8 @@ jobs:
         
       - name: List files
         run: ls
+      - name: List files up
+        run: ls ../
+      - name: List files up up
+        run: ls ../../
           
