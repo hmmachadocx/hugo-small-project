@@ -11,15 +11,10 @@ jobs:
     env:
       GOPRIVATE: "github.com/checkmarxDev/*"
     steps:
-      - name: Checkout Checkmarx cli
+      - uses: actions/checkout@v2
+      - name: Checkout
         uses: actions/checkout@v2
         with:
-          name: Checkmarx/ast-cli     <-- clone https://github.com/org1/repo1
-          ref: refs/heads/main
-      - name: Set up Go 1.17.x
-        uses: actions/setup-go@v2
-        with:
-          go-version: 1.17.x
-      - name: Build CLI
-        run: go build -o ./bin/cx ./cmd
+          repository: Checkmarx/ast-cli
+          path: './ast-cli'
           
