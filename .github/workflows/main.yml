@@ -12,4 +12,5 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Run script
-        run: . '/app/entrypoint.sh'
+        shell: pwsh
+        run: '/app/entrypoint.ps1'
