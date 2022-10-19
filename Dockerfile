@@ -1,4 +1,4 @@
-# Examplee: docker build . -t dsvw && docker run -p 65412:65412 dsvw
+# Example: docker build . -t dsvw && docker run -p 65412:65412 dsvw
 
 FROM alpine:3.11
 USER pedro
