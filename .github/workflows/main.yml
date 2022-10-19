@@ -6,8 +6,10 @@ on:
       - master
 
 jobs:
-  build:
+  Checkmarx-One-Scan:
     runs-on: windows-latest
+    env:
+      GOPRIVATE: "github.com/checkmarxDev/*"
     steps:
       - name: Checkout project
         uses: actions/checkout@v2
@@ -16,5 +18,10 @@ jobs:
         with:
           name: Checkmarx/ast-cli     <-- clone https://github.com/org1/repo1
           ref: refs/heads/main
+      - name: Set up Go 1.17.x
+        uses: actions/setup-go@v2
+        with:
+          go-version: 1.17.x
       - name: Build CLI
-        run: make build-release
+        run: go build -o ./bin/cx ./cmd
+          
