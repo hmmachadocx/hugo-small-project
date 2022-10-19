@@ -11,8 +11,9 @@ jobs:
     env:
       GOPRIVATE: "github.com/checkmarxDev/*"
     steps:
-      - uses: actions/checkout@v2
       - name: Checkout
+        uses: actions/checkout@v2
+      - name: Checkout CLI
         uses: actions/checkout@v2
         with:
           repository: Checkmarx/ast-cli
