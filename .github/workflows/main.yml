@@ -1,14 +1,13 @@
-name: windows
-
-on: [push, pull_request]
+name: Checkmarx AST Scan
+on:
+  push:
+    branches:
+      - main
+      - master
 
 jobs:
-  run-scan:
-    strategy:
-      matrix:
-        os: [windows-latest]
-      fail-fast: true
-    runs-on: ${{ matrix.os }}
+  build:
+    runs-on: windows-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3.0.2
+        uses: actions/checkout@v2
