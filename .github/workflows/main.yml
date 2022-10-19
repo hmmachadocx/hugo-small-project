@@ -17,5 +17,6 @@ jobs:
           name: Checkmarx/ast-cli     <-- clone https://github.com/org1/repo1
           ref: refs/heads/main
       - name: Install ninja with choco
-      - run: choco install ninja
-      - run: ninja --version
+        run: |
+          choco install ninja
+          ninja --version
