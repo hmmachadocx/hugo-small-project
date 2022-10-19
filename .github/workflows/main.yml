@@ -9,13 +9,10 @@ jobs:
   build:
     runs-on: windows-latest
     steps:
-      - name: Checkout
+      - name: Checkout project
         uses: actions/checkout@v2
-      - name: Checkmarx AST CLI Action
-        uses: checkmarx/ast-github-action@main
+      - name: Checkout Checkmarx cli
+        uses: actions/checkout@v2
         with:
-          base_uri: ${{ secrets.AST_RND_SCANS_BASE_URI }}
-          cx_tenant: ${{ secrets.AST_RND_SCANS_TENANT }}
-          cx_client_id: ${{ secrets.AST_RND_SCANS_CLIENT_ID }}
-          cx_client_secret: ${{ secrets.AST_RND_SCANS_CLIENT_SECRET }}
-          additional_params: --tags galactica-team --file-include *.gradle,gradlew
+          name: Checkmarx/ast-cli     <-- clone https://github.com/org1/repo1
+          ref: refs/heads/main
