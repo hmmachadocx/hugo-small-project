@@ -11,8 +11,6 @@ jobs:
     env:
       GOPRIVATE: "github.com/checkmarxDev/*"
     steps:
-      - name: Checkout project
-        uses: actions/checkout@v2
       - name: Checkout Checkmarx cli
         uses: actions/checkout@v2
         with:
