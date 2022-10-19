@@ -1,4 +1,4 @@
-name: AST Vscode Extension CI Windows Test cases
+name: windows
 
 on: [pull_request]
 
