@@ -18,5 +18,4 @@ jobs:
           ref: refs/heads/main
       - name: Install ninja with choco
         run: |
-          choco install ninja
-          ninja --version
+          choco install checkmarx/ast-cli/ast-cli
