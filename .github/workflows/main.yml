@@ -20,12 +20,5 @@ jobs:
       - name: Testing
         run: |
           cx scan create \
-            -s . \
-            --project-name hugo_windows \
-            --branch main \
-            --base-uri https://deu.ast.checkmarx.net/ \
-            --tenant cx_ast_rd_galatica_canary \
-            --client-id hugomachado \
-            --client-secret d067fab0-afb8-4204-9279-41396e0d3c38 \
-            --debug
+            -s . --project-name hugo_windows --branch main --base-uri https://deu.ast.checkmarx.net/ --tenant cx_ast_rd_galatica_canary --client-id hugomachado --client-secret d067fab0-afb8-4204-9279-41396e0d3c38 --debug
           
