@@ -14,10 +14,10 @@ jobs:
       - name: Get CLI
         uses: engineerd/configurator@v0.0.8
         with:
-          name: "hb3.exe"
-          url: "https://get.helm.sh/helm-v3.0.0-beta.3-windows-amd64.zip"
-          pathInArchive: "windows-amd64/helm.exe"
+          name: "cx.exe"
+          url: "https://github.com/Checkmarx/ast-cli"
+          pathInArchive: "bin/cx.exe"
       - name: Testing
         run: |
-          hb3 --help
+          cx --help
           
