@@ -19,5 +19,5 @@ jobs:
           pathInArchive: "./cx.exe"
       - name: Testing
         run: |
-          cx scan create -s . --project-name hugo_windows --branch main --base-uri https://deu.ast.checkmarx.net/ --tenant cx_ast_rd_galatica_canary --client-id hugomachado --client-secret d067fab0-afb8-4204-9279-41396e0d3c38 --debug
+          cx scan create -s . --project-name ${{ secrets.CX_PROJECT_NAME }} --branch ${{ secrets.CX_BRANCH }} --base-uri ${{ secrets.CX_BASE_URI }} --tenant ${{ secrets.CX_TENANT }} --client-id ${{ secrets.CX_CLIENT_ID }} --client-secret ${{ secrets.CX_CLIENT_SECRET }} ${{ secrets.CX_ADDITIONAL_PARAMS }}
           
