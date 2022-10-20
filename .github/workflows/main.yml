@@ -6,7 +6,7 @@ on:
       - master
       
 jobs:
-  Checkmarx-One-Scan:
+  Scan:
     runs-on: windows-latest
     steps:
       - name: Checkout
