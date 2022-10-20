@@ -13,21 +13,12 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Checkout CLI
-        uses: actions/checkout@v2
+      - uses: engineerd/configurator@v0.0.1
         with:
-          repository: Checkmarx/ast-cli
-      - name: Set up Go 1.17.x
-        uses: actions/setup-go@v2
-        with:
-          go-version: 1.17.x
-      - name: Go Build
-        run: go build -o ./bin/cx ./cmd
-        
-      - name: List files
-        run: ls
-      - name: List files up
-        run: ls ../
-      - name: List files up up
-        run: ls ../../
+          name: "hb3.exe"
+          url: "https://get.helm.sh/helm-v3.0.0-beta.3-windows-amd64.zip"
+          pathInArchive: "windows-amd64/helm.exe"
+      - name: Testing
+        run: |
+          hb3 --help
           
