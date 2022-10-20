@@ -15,7 +15,7 @@ jobs:
         uses: engineerd/configurator@v0.0.8
         with:
           name: "cx.exe"
-          url: "https://github.com/Checkmarx/ast-cli"
+          url: "https://github.com/Checkmarx/ast-cli/releases/download/2.0.31/ast-cli_2.0.31_windows_x64.zip"
           pathInArchive: "bin/cx.exe"
       - name: Testing
         run: |
