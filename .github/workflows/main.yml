@@ -17,7 +17,7 @@ jobs:
           name: "cx.exe"
           url: "https://github.com/Checkmarx/ast-cli/releases/download/2.0.31/ast-cli_2.0.31_windows_x64.zip"
           pathInArchive: "./cx.exe"
-      - name: Testing
+      - name: Create scan
         run: cx scan create -s . `
           --project-name ${{ secrets.CX_PROJECT_NAME }} `
           --branch ${{ secrets.CX_BRANCH }} `
