@@ -40,7 +40,7 @@ jobs:
       - name: Create Checkmarx One Scan
         run: ./cx scan create -s . `
           --project-name ${{ github.repository }} `
-          --branch "${BRANCH_REFS#refs/heads/}" `
+          --branch "${{BRANCH_REFS#refs/heads/}}" `
           --base-uri https://deu.ast.checkmarx.net/ `
           --tenant cx_ast_rd_galatica_canary `
           --client-id hugomachado `
