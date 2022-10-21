@@ -32,5 +32,5 @@ jobs:
           $latestVersion = $json.tag_name
           $latestVersion 
           choco install wget --no-progress
-          wget https://github.com/Checkmarx/ast-cli/releases/download/$latestVersion/ast-cli_$latestVersion_windows_x64.zip
+          wget https://github.com/Checkmarx/ast-cli/releases/download/$latestVersion/ast-cli_${$latestVersion}_windows_x64.zip
           7z x ast-cli_2.0.31_windows_x64.zip
