@@ -1,15 +1,23 @@
-name: Checkmarx AST Scan
+#
+# Example job using github action to run a scan in a windows environment
+#
+# CLI installed using 'engineerd/configurator' action
+#
+# Configuration through environment secrets in Github
+#
+
+name: Checkmarx One Scan on Push
 on:
   push:
     branches:
       - main
-      - master
-      
+
 jobs:
   Scan:
     runs-on: windows-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: wget
+      - name: Get Checkmarx One CLI
         run: wget https://github.com/Checkmarx/ast-cli/releases/download/2.0.31/ast-cli_2.0.31_windows_x64.zip
+        
