@@ -25,7 +25,6 @@ jobs:
   Scan:
     runs-on: windows-latest
     env:
-      PROJECT_NAME: ${{ github.repository }}
       BRANCH: ${${{ github.head_ref || github.ref }}#refs/heads/}
     steps:
       - name: Checkout
@@ -40,7 +39,7 @@ jobs:
           7z x ast-cli_2.0.31_windows_x64.zip
       - name: Create Checkmarx One Scan
         run: ./cx scan create -s . `
-          --project-name $PROJECT_NAME `
+          --project-name ${{ github.repository }} `
           --branch $BRANCH `
           --base-uri https://deu.ast.checkmarx.net/ `
           --tenant cx_ast_rd_galatica_canary `
