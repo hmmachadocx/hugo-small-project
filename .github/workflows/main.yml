@@ -30,6 +30,6 @@ jobs:
       - name: Create Checkmarx One Scan
         run: |
           echo "Branch: ${{ env.BRANCH_REFS }}"
-          FOO="${{ env.BRANCH_REFS }}"
+          $FOO = "${{ env.BRANCH_REFS }}"
           echo "Foo: ${FOO}"
           
