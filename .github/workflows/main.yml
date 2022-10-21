@@ -32,4 +32,6 @@ jobs:
           echo "Branch: ${{ env.BRANCH_REFS }}"
           $FOO = "${{ env.BRANCH_REFS }}"
           echo "Foo: ${FOO}"
+          $FOO_CLEAN = ${FOO#refs/heads/}
+          echo "Foo Clean: ${FOO_CLEAN}"
           
