@@ -39,13 +39,7 @@ jobs:
           7z x ast-cli_2.0.31_windows_x64.zip
       - name: Create Checkmarx One Scan
         run: |
-          echo "Branch: ${{ env.BRANCH_REFS }}"
-          $FOO = "${{ env.BRANCH_REFS }}"
-          echo "Foo: ${FOO}"
-          $FOO_CLEAN = main
-          echo "Foo Clean: ${FOO_CLEAN}"
-          
-          $CX_BRANCH=$(echo ${{ env.BRANCH_REFS }} | sed -e "s#refs/heads/##g")
+          $CX_BRANCH=$(echo ${{ github.head_ref || github.ref }} | sed -e "s#refs/heads/##g")
           echo "Cx Branch: ${CX_BRANCH}"
           
           ./cx scan create -s . `
