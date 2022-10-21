@@ -18,6 +18,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+      - name: Install stack and wget
+        run: |
+          choco install wget --no-progress
       - name: Get Checkmarx One CLI
         run: |
           wget https://github.com/Checkmarx/ast-cli/releases/download/2.0.31/ast-cli_2.0.31_windows_x64.zip
