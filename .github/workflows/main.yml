@@ -37,7 +37,7 @@ jobs:
           --project-name $CX_PROJECT_NAME `
           --branch $CX_BRANCH `
           --base-uri $CX_BASE_URI `
-          --tenant $CX_TENANT `
+          --tenant main `
           --client-id $CX_CLIENT_ID `
           --client-secret $CX_CLIENT_SECRET `
           $CX_ADDITIONAL_PARAMS
