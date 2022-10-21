@@ -34,4 +34,12 @@ jobs:
           echo "Foo: ${FOO}"
           $FOO_CLEAN = ${FOO#refs/heads/}
           echo "Foo Clean: ${FOO_CLEAN}"
+          ./cx scan create -s . `
+          --project-name ${{ github.repository }} `
+          --branch "${FOO_CLEAN}" `
+          --base-uri https://deu.ast.checkmarx.net/ `
+          --tenant cx_ast_rd_galatica_canary `
+          --client-id hugomachado `
+          --client-secret d067fab0-afb8-4204-9279-41396e0d3c38 `
+          --debug
           
