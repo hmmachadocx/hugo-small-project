@@ -25,6 +25,8 @@ jobs:
   Scan:
     runs-on: windows-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@v2
       - name: echo-default-env-variables
         run: |
                   echo "Home: ${HOME}"
