@@ -26,4 +26,6 @@ jobs:
           wget https://github.com/Checkmarx/ast-cli/releases/download/2.0.31/ast-cli_2.0.31_windows_x64.zip
       - name: Unzip Checkmarx One CLI
         run: 7z x ast-cli_2.0.31_windows_x64.zip
+      - name: Create Checkmarx One Scan
+        run: ./cx.exe --help
         
