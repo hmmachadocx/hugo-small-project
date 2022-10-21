@@ -11,6 +11,15 @@ on:
   push:
     branches:
       - main
+      
+env:
+  CX_PROJECT_NAME: ${{ secrets.CX_PROJECT_NAME }}
+  CX_BRANCH: ${{ secrets.CX_BRANCH }}
+  CX_BASE_URI: ${{ secrets.CX_BASE_URI }}
+  CX_TENANT: ${{ secrets.CX_TENANT }}
+  CX_CLIENT_ID: ${{ secrets.CX_CLIENT_ID }}
+  CX_CLIENT_SECRET: ${{ secrets.CX_CLIENT_SECRET }}
+  CX_ADDITIONAL_PARAMS: ${{ secrets.CX_ADDITIONAL_PARAMS }}
 
 jobs:
   Scan:
@@ -25,11 +34,11 @@ jobs:
           7z x ast-cli_2.0.31_windows_x64.zip
       - name: Create Checkmarx One Scan
         run: ./cx scan create -s . `
-          --project-name ${{ secrets.CX_PROJECT_NAME }} `
-          --branch ${{ secrets.CX_BRANCH }} `
-          --base-uri ${{ secrets.CX_BASE_URI }} `
-          --tenant ${{ secrets.CX_TENANT }} `
-          --client-id ${{ secrets.CX_CLIENT_ID }} `
-          --client-secret ${{ secrets.CX_CLIENT_SECRET }} `
-          ${{ secrets.CX_ADDITIONAL_PARAMS }}
+          --project-name $CX_PROJECT_NAME `
+          --branch $CX_BRANCH `
+          --base-uri $CX_BASE_URI `
+          --tenant $CX_TENANT `
+          --client-id $CX_CLIENT_ID `
+          --client-secret $CX_CLIENT_SECRET `
+          $CX_ADDITIONAL_PARAMS
         
