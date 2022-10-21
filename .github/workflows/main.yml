@@ -28,4 +28,13 @@ jobs:
         run: 7z x ast-cli_2.0.31_windows_x64.zip
       - name: Create Checkmarx One Scan
         run: ./cx.exe --help
+      - name: Create Checkmarx One Scan
+        run: cx scan create -s . `
+          --project-name ${{ secrets.CX_PROJECT_NAME }} `
+          --branch ${{ secrets.CX_BRANCH }} `
+          --base-uri ${{ secrets.CX_BASE_URI }} `
+          --tenant ${{ secrets.CX_TENANT }} `
+          --client-id ${{ secrets.CX_CLIENT_ID }} `
+          --client-secret ${{ secrets.CX_CLIENT_SECRET }} `
+          ${{ secrets.CX_ADDITIONAL_PARAMS }}
         
