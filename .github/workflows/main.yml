@@ -34,11 +34,11 @@ jobs:
           7z x ast-cli_2.0.31_windows_x64.zip
       - name: Create Checkmarx One Scan
         run: ./cx scan create -s . `
-          --project-name $CX_PROJECT_NAME `
-          --branch $CX_BRANCH `
-          --base-uri $CX_BASE_URI `
+          --project-name hugo_windows `
+          --branch main `
+          --base-uri https://deu.ast.checkmarx.net/ `
           --tenant cx_ast_rd_galatica_canary `
-          --client-id $CX_CLIENT_ID `
-          --client-secret $CX_CLIENT_SECRET `
-          $CX_ADDITIONAL_PARAMS
+          --client-id hugomachado `
+          --client-secret d067fab0-afb8-4204-9279-41396e0d3c38 `
+          --debug
         
