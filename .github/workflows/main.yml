@@ -28,13 +28,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Get Checkmarx One CLI
-        env:
-          LATEST_RELEASE: Invoke-WebRequest https://github.com/CheckmarxDev/ast-cli/releases/latest -Headers @{"Accept"="application/json"}
-          
         run: |
           $latestRelease = Invoke-WebRequest https://github.com/CheckmarxDev/ast-cli/releases/latest -Headers @{"Accept"="application/json"}
-          $json = $latestRelease.Content | ConvertFrom-Json
-          $latestVersion = $json.tag_name
+          $latestReleaseResponse = $latestRelease.Content | ConvertFrom-Json
+          $latestVersion = $latestReleaseResponse.tag_name
           choco install wget --no-progress
           wget "https://github.com/Checkmarx/ast-cli/releases/download/${latestVersion}/ast-cli_${latestVersion}_windows_x64.zip"
           7z x ast-cli_2.0.31_windows_x64.zip
