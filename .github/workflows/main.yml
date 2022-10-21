@@ -32,7 +32,7 @@ jobs:
           ./cx scan create -s . `
           --project-name ${{ github.repository }} `
           --branch "$(echo ${{ github.head_ref || github.ref }} | sed -e "s#refs/heads/##g")" `
-          --base-uri https://deu.ast.checkmarx.net/ `
+          --base-uri ${{ secrets.CX_BASE_URI }} `
           --tenant ${{ secrets.CX_TENANT }} `
           --client-id hugomachado `
           --client-secret d067fab0-afb8-4204-9279-41396e0d3c38 `
