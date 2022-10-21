@@ -19,5 +19,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Get Checkmarx One CLI
-        run: wget https://github.com/Checkmarx/ast-cli/releases/download/2.0.31/ast-cli_2.0.31_windows_x64.zip
+        run: |
+          wget https://github.com/Checkmarx/ast-cli/releases/download/2.0.31/ast-cli_2.0.31_windows_x64.zip
         
