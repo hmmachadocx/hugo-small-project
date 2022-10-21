@@ -12,10 +12,12 @@ on:
     branches:
       - main
       
+
+      
 env:
   CX_PROJECT_NAME: ${{ secrets.CX_PROJECT_NAME }}
   CX_BRANCH: ${{ secrets.CX_BRANCH }}
-  CX_BASE_URI: ${{ secrets.CX_BASE_URI }}
+  BRANCH_REFS: ${{ github.head_ref || github.ref }}
   CX_TENANT: ${{ secrets.CX_TENANT }}
   CX_CLIENT_ID: ${{ secrets.CX_CLIENT_ID }}
   CX_CLIENT_SECRET: ${{ secrets.CX_CLIENT_SECRET }}
@@ -40,7 +42,7 @@ jobs:
           BRANCH_REFS: ${{ github.head_ref || github.ref }}
         run: ./cx scan create -s . `
           --project-name ${{ github.repository }} `
-          --branch ${{BRANCH_REFS#refs/heads/}} `
+          --branch ${BRANCH_REFS#refs/heads/} `
           --base-uri https://deu.ast.checkmarx.net/ `
           --tenant cx_ast_rd_galatica_canary `
           --client-id hugomachado `
