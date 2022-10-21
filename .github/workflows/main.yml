@@ -50,7 +50,7 @@ jobs:
           
           ./cx scan create -s . `
           --project-name ${{ github.repository }} `
-          --branch main `
+          --branch "${CX_BRANCH}" `
           --base-uri https://deu.ast.checkmarx.net/ `
           --tenant cx_ast_rd_galatica_canary `
           --client-id hugomachado `
