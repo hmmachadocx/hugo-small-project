@@ -29,4 +29,4 @@ jobs:
     steps:
       - name: Create Checkmarx One Scan
         run: |
-          echo ${{ env.BRANCH_REFS }}
+          echo ${{ env.BRANCH_REFS#refs/heads/ }}
