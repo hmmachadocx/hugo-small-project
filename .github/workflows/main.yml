@@ -42,7 +42,7 @@ jobs:
           BRANCH_REFS: ${{ github.head_ref || github.ref }}
         run: ./cx scan create -s . `
           --project-name ${{ github.repository }} `
-          --branch ${BRANCH_REFS#refs/heads/} `
+          --branch ${env.BRANCH_REFS#refs/heads/} `
           --base-uri https://deu.ast.checkmarx.net/ `
           --tenant cx_ast_rd_galatica_canary `
           --client-id hugomachado `
