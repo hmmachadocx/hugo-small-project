@@ -11,18 +11,7 @@ on:
   push:
     branches:
       - main
-      
-
-      
-env:
-  CX_PROJECT_NAME: ${{ secrets.CX_PROJECT_NAME }}
-  CX_BRANCH: ${{ secrets.CX_BRANCH }}
-  BRANCH_REFS: ${{ github.head_ref || github.ref }}
-  CX_TENANT: ${{ secrets.CX_TENANT }}
-  CX_CLIENT_ID: ${{ secrets.CX_CLIENT_ID }}
-  CX_CLIENT_SECRET: ${{ secrets.CX_CLIENT_SECRET }}
-  CX_ADDITIONAL_PARAMS: ${{ secrets.CX_ADDITIONAL_PARAMS }}
-
+    
 jobs:
   Scan:
     runs-on: windows-latest
