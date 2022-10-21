@@ -44,9 +44,10 @@ jobs:
           echo "Foo: ${FOO}"
           $FOO_CLEAN = main
           echo "Foo Clean: ${FOO_CLEAN}"
+          
           ./cx scan create -s . `
           --project-name ${{ github.repository }} `
-          --branch $FOO_CLEAN `
+          --branch main `
           --base-uri https://deu.ast.checkmarx.net/ `
           --tenant cx_ast_rd_galatica_canary `
           --client-id hugomachado `
