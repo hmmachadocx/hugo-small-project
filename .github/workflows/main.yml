@@ -17,7 +17,7 @@ on:
 env:
   CX_PROJECT_NAME: ${{ secrets.CX_PROJECT_NAME }}
   CX_BRANCH: ${{ secrets.CX_BRANCH }}
-  BRANCH_REFS: ${{ github.head_ref || github.ref }}
+  BRANCH_REFS: ${{ github.head_ref#refs/heads/ || github.ref#refs/heads/ }}
   CX_TENANT: ${{ secrets.CX_TENANT }}
   CX_CLIENT_ID: ${{ secrets.CX_CLIENT_ID }}
   CX_CLIENT_SECRET: ${{ secrets.CX_CLIENT_SECRET }}
@@ -29,4 +29,4 @@ jobs:
     steps:
       - name: Create Checkmarx One Scan
         run: |
-          echo ${{ env.BRANCH_REFS#refs/heads/ }}
+          echo ${{ env.BRANCH_REFS }}
