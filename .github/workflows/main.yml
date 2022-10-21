@@ -45,6 +45,9 @@ jobs:
           $FOO_CLEAN = main
           echo "Foo Clean: ${FOO_CLEAN}"
           
+          CX_BRANCH=$(echo $FOO | sed -e "s#refs/heads/##g")
+          echo "Cx Branch: ${CX_BRANCH}"
+          
           ./cx scan create -s . `
           --project-name ${{ github.repository }} `
           --branch main `
