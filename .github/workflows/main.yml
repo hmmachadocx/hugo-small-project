@@ -40,11 +40,10 @@ jobs:
       - name: Create Checkmarx One Scan
         run: |
           $CX_BRANCH=$(echo ${{ github.head_ref || github.ref }} | sed -e "s#refs/heads/##g")
-          echo "Cx Branch: ${CX_BRANCH}"
           
           ./cx scan create -s . `
           --project-name ${{ github.repository }} `
-          --branch "${CX_BRANCH}" `
+          --branch "$(echo ${{ github.head_ref || github.ref }} | sed -e "s#refs/heads/##g")" `
           --base-uri https://deu.ast.checkmarx.net/ `
           --tenant cx_ast_rd_galatica_canary `
           --client-id hugomachado `
