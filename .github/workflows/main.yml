@@ -38,12 +38,15 @@ jobs:
           wget "https://github.com/Checkmarx/ast-cli/releases/download/${latestVersion}/ast-cli_${latestVersion}_windows_x64.zip"
           7z x ast-cli_2.0.31_windows_x64.zip
       - name: Create Checkmarx One Scan
-        run: ./cx scan create -s . `
+        run: |
+          $CX_BRANCH=$(echo ${{ github.head_ref || github.ref }} | sed -e "s#refs/heads/##g")
+          
+          ./cx scan create -s . `
           --project-name ${{ github.repository }} `
           --branch "$(echo ${{ github.head_ref || github.ref }} | sed -e "s#refs/heads/##g")" `
-          --base-uri ${{ secrets.CX_BASE_URI }} `
-          --tenant ${{ secrets.CX_TENANT }} `
-          --client-id ${{ secrets.CX_CLIENT_ID }} `
-          --client-secret ${{ secrets.CX_CLIENT_SECRETS }} `
-          ${{ secrets.CX_ADDITIONAL_PARAMS }}
+          --base-uri https://deu.ast.checkmarx.net/ `
+          --tenant cx_ast_rd_galatica_canary `
+          --client-id hugomachado `
+          --client-secret d067fab0-afb8-4204-9279-41396e0d3c38 `
+          --debug
           
