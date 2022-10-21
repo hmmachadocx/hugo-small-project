@@ -24,8 +24,6 @@ env:
 jobs:
   Scan:
     runs-on: windows-latest
-    env:
-      BRANCH: ${${{ github.head_ref || github.ref }}#refs/heads/}
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -40,7 +38,7 @@ jobs:
       - name: Create Checkmarx One Scan
         run: ./cx scan create -s . `
           --project-name ${{ github.repository }} `
-          --branch $BRANCH `
+          --branch ${${{ github.head_ref || github.ref }}#refs/heads/} `
           --base-uri https://deu.ast.checkmarx.net/ `
           --tenant cx_ast_rd_galatica_canary `
           --client-id hugomachado `
