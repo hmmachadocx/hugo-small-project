@@ -1,20 +1,22 @@
 #
-# Example job using github action to run a scan in a windows environment
+# Example job using GitHub action to run a scan in a windows environment
 #
-# CLI installed using 'engineerd/configurator' action
-#
-# Configuration through environment secrets in Github
+# Configuration through environment secrets in GitHub. Secrets need to be created:
+#           > CX_VERSION
+#           > CX_BASE_URI
+#           > CX_TENANT
+#           > CX_CLIENT_ID
+#           > CX_CLIENT_SECRET
 #
 
 name: Checkmarx One Scan on Push
-
 on:
   push:
     branches:
       - main
-    
+
 jobs:
-  Scan:
+  Checkmarx-One-Scan:
     runs-on: windows-latest
     steps:
       - name: Checkout
@@ -22,5 +24,14 @@ jobs:
       - name: Get Checkmarx One CLI
         run: |
           choco install wget --no-progress
-          wget -r -l1 -np "https://github.com/CheckmarxDev/ast-cli/releases/latest/download/" -A "ast-cli*.zip"
-          
+          wget "https://github.com/Checkmarx/ast-cli/releases/download/${CX_VERSION}/ast-cli_${CX_VERSION}_windows_x64.zip"
+          7z x ast-cli_2.0.31_windows_x64.zip
+      - name: Create Checkmarx One scan
+        run: ./cx scan create -s . `
+          --project-name ${{ github.repository }} `
+          --branch "$(echo ${{ github.head_ref || github.ref }} | sed -e "s#refs/heads/##g")" `
+          --base-uri ${{ secrets.CX_BASE_URI }} `
+          --tenant ${{ secrets.CX_TENANT }} `
+          --client-id ${{ secrets.CX_CLIENT_ID }} `
+          --client-secret ${{ secrets.CX_CLIENT_SECRET }} `
+          --debug
