@@ -34,4 +34,4 @@ jobs:
           --tenant ${{ secrets.CX_TENANT }} `
           --client-id ${{ secrets.CX_CLIENT_ID }} `
           --client-secret ${{ secrets.CX_CLIENT_SECRET }} `
-          --debug
+          ${{ secrets.CX_ADDITIONAL_PARAMS }}
