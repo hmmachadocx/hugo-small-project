@@ -20,5 +20,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Get Checkmarx One CLI
-        run: $PSVersionTable
+        run: |
+          choco install wget --no-progress
+          wget -r -l1 -np "https://github.com/CheckmarxDev/ast-cli/releases/latest/download/" -A "ast-cli*.zip"
           
