@@ -25,7 +25,7 @@ jobs:
         run: |
           choco install wget --no-progress
           wget "https://github.com/Checkmarx/ast-cli/releases/download/${{secrets.CX_VERSION}}/ast-cli_${{secrets.CX_VERSION}}_windows_x64.zip"
-          7z x ast-cli_2.0.31_windows_x64.zip
+          7z x ast-cli_${{secrets.CX_VERSION}}_windows_x64.zip
       - name: Create Checkmarx One scan
         run: ./cx scan create -s . `
           --project-name ${{ github.repository }} `
