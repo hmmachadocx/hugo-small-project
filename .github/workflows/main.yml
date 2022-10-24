@@ -20,21 +20,5 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Get Checkmarx One CLI
-        run: |
-          $latestRelease = Invoke-WebRequest https://github.com/CheckmarxDev/ast-cli/releases/latest -Headers @{"Accept"="application/json"}
-          $latestReleaseResponse = $latestRelease.Content | ConvertFrom-Json
-          $latestVersion = $latestReleaseResponse.tag_name
-          choco install wget --no-progress
-          wget "https://github.com/Checkmarx/ast-cli/releases/download/${latestVersion}/ast-cli_${latestVersion}_windows_x64.zip"
-          7z x ast-cli_2.0.31_windows_x64.zip
-      - name: Create Checkmarx One Scan
-        run: 
-          ./cx scan create -s . `
-          --project-name ${{ github.repository }} `
-          --branch "$(echo ${{ github.head_ref || github.ref }} | sed -e "s#refs/heads/##g")" `
-          --base-uri ${{ secrets.CX_BASE_URI }} `
-          --tenant ${{ secrets.CX_TENANT }} `
-          --client-id hugomachado `
-          --client-secret d067fab0-afb8-4204-9279-41396e0d3c38 `
-          --debug
+        run: $PSVersionTable
           
